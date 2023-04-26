@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Recommendation</title>
+</head>
+<body>
+    <h1>Job Recommendation</h1>
+    <div class="row">
+        <form action='/recommendation' method="post" class="">
+            <label for="skills"><b>Skills </b></label><br>
+            <select name="sk">
+                {% for skill in all_skill %}
+                    <option value="{{skill}}">{{skill}}</option>
+                {%endfor%}
+            </select>
+            <label for="Education"><b>Education </b></label>
+            <select name="ed">
+                {% for education in all_education %}
+                    <option value="{{education}}">{{education}}</option>
+                {%endfor%}
+            </select>
+            <label for="experience"><b>Experience </b></label>
+            <select name="ex">
+                {% for experience in all_experience %}
+                    <option value="{{experience}}">{{experience}}</option>
+                {%endfor%}
+            </select>
+
+            <div class="row center">
+                <button type="submit">Recommended jobs</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

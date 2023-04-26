@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Recommendation</title>
+    <style>
+        /* Basic styling for the form */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            font-size: 1.2em;
+            padding: 5px;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #1abc9c;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #16a085;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Job Recommendation</h1>
+    <div class="row">
+        <form action='/recommendation' method="post" class="">
+            <label for="skills"><b>Skills</b></label>
+            <select name="sk">
+                {% for skill in all_skill | unique %}
+                    <option value="{{skill}}">{{skill}}</option>
+                {% endfor %}
+            </select>
+
+            <label for="Education"><b>Education</b></label>
+            <select name="ed">
+                {% for education in all_education | unique %}
+                    <option value="{{education}}">{{education}}</option>
+                {% endfor %}
+            </select>
+
+            <label for="experience"><b>Experience</b></label>
+            <select name="ex">
+                {% for experience in all_experience | unique %}
+                    <option value="{{experience}}">{{experience}}</option>
+                {% endfor %}
+            </select>
+
+            <label for="payrate"><b>Salary</b></label>
+            <select name="sa">
+                {% for payrate in all_payrate | unique %}
+                    <option value="{{payrate}}">{{payrate}}</option>
+                {% endfor %}
+            </select>
+
+            <div class="row center">
+                <button type="submit">Recommended jobs</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
